@@ -132,3 +132,36 @@ class EnviarCodigoRecuperacionView(APIView):
             fail_silently=False,
         )
         return Response({'exito': True, 'mensaje': 'Código enviado al correo.'})
+
+# --- Validar código OTP ---
+class ValidarCodigoOTPView(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        codigo = request.data.get('codigo')
+        usuario = Usuario.objects.filter(email=email, is_active=True).first()
+        if not usuario:
+            return Response({'ok': False, 'error': 'Usuario no encontrado.'}, status=status.HTTP_400_BAD_REQUEST)
+        codigo_obj = CodigoRecuperacion.objects.filter(usuario=usuario, codigo=codigo).first()
+        if not codigo_obj or codigo_obj.is_expired():
+            return Response({'ok': False, 'error': 'Código inválido o expirado.'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'ok': True, 'mensaje': 'Código válido.'})
+
+# --- Restablecer contraseña usando OTP ---
+class RestablecerContrasenaView(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        codigo = request.data.get('codigo')
+        nueva_contrasena = request.data.get('nueva_contrasena')
+        usuario = Usuario.objects.filter(email=email, is_active=True).first()
+        if not usuario:
+            return Response({'ok': False, 'error': 'Usuario no encontrado.'}, status=status.HTTP_400_BAD_REQUEST)
+        codigo_obj = CodigoRecuperacion.objects.filter(usuario=usuario, codigo=codigo).first()
+        if not codigo_obj or codigo_obj.is_expired():
+            return Response({'ok': False, 'error': 'Código inválido o expirado.'}, status=status.HTTP_400_BAD_REQUEST)
+        if not nueva_contrasena or len(nueva_contrasena) < 6:
+            return Response({'ok': False, 'error': 'La contraseña debe tener al menos 6 caracteres.'}, status=status.HTTP_400_BAD_REQUEST)
+        usuario.set_password(nueva_contrasena)
+        usuario.save()
+        # Elimina el código usado
+        codigo_obj.delete()
+        return Response({'ok': True, 'mensaje': 'Contraseña restablecida correctamente.'})

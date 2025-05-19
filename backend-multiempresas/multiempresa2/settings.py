@@ -1,3 +1,12 @@
+# Configuración de email para envío real (ejemplo con Gmail)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Las siguientes líneas quedan comentadas temporalmente para usar el backend de consola
+# EMAIL_HOST = 'smtp.office365.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'harold.s.f@hotmail.com'
+# EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = 'harold.s.f@hotmail.com'
 """
 Django settings for multiempresa2 project.
 
