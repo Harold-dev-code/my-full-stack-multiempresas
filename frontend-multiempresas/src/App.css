@@ -1,0 +1,269 @@
+:root {
+  --color-bg: #181818;
+  --color-card: #232323;
+  --color-gold: #FFD700;
+  --color-gold-soft: #FFCC40;
+  --color-yellow: #FFF200;
+  --color-white: #FFFFFF;
+  --color-text: #FFFFFF;
+  --color-input-bg: #181818;
+  --color-input-border: #444444;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', 'Nunito', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dashboard styles */
+.dashboard-container {
+  background: var(--color-card, #222);
+  color: var(--color-white, #f5f5f5);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.dashboard-section {
+  background: rgba(30,30,30,0.95);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-white, #f5f5f5);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+.dashboard-title {
+  color: var(--color-gold, #FFD700);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-list {
+  color: var(--color-white, #f5f5f5);
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dashboard-list li:last-child {
+  border-bottom: none;
+}
+
+.dashboard-form input {
+  background: #181818;
+  color: #FFD700;
+  border: 1.5px solid #FFD700;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-form button {
+  background: var(--color-gold, #FFD700);
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dashboard-form button:hover {
+  background: #e6c200;
+}
+
+.dashboard-message {
+  color: #FFD700;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Inspiración UX/UI: aipetto.com y hacathon-frontend-neon.vercel.app */
+/* Cards, animaciones suaves, botones llamativos, layout moderno, paleta dorado-negro */
+
+.card {
+  background: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1.5px solid var(--color-gold-soft);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.button-primary {
+  background: linear-gradient(90deg, var(--color-gold), var(--color-yellow));
+  color: var(--color-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.10);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.button-primary:hover {
+  background: linear-gradient(90deg, var(--color-yellow), var(--color-gold));
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.18);
+  transform: scale(1.03);
+}
+
+.input {
+  background: var(--color-input-bg);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-input-border);
+  border-radius: 6px;
+  padding: 0.6rem 1rem; /* Ajustado para dejar espacio para el ícono */
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%; /* Asegura que el input ocupe el ancho completo del contenedor */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+.input:focus {
+  border: 1.5px solid var(--color-gold);
+}
+
+/* Estilos del logo de la empresa */
+.logo-empresa {
+  transition: transform 0.3s ease-in-out;
+}
+.logo-empresa:hover {
+  transform: scale(1.05);
+}
+
+/* --- Estilos para el componente de Login (Responsividad) --- */
+
+/* Contenedor principal del login card */
+.login-card-container {
+    display: flex;
+    flex-direction: row; /* Por defecto, en fila para pantallas grandes */
+    background: var(--color-card);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    overflow: hidden;
+    max-width: 900px; /* Ancho máximo para el contenedor en pantallas grandes */
+    width: 100%;
+    min-height: 420px;
+}
+
+/* Panel de la imagen de textura */
+.login-texture-panel {
+    flex: 1.5; /* Ocupa 1.5 veces el espacio del formulario por defecto */
+    min-width: 320px; /* Ancho mínimo para que la imagen sea visible */
+    display: block; /* Visible por defecto */
+}
+
+/* Panel del formulario */
+.login-form-panel {
+    flex: 1; /* Ocupa 1 vez el espacio */
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-card);
+}
+
+/* Media Queries para hacer el diseño responsivo */
+@media (max-width: 768px) {
+    .login-card-container {
+        flex-direction: column; /* En pantallas pequeñas, apila los elementos (imagen y formulario) */
+        max-width: 90%; /* Permite que ocupe más ancho en pantallas pequeñas, con un pequeño margen */
+        min-height: auto; /* Ajusta la altura automáticamente */
+        box-shadow: none; /* Opcional: Quitar la sombra en móviles para un diseño más limpio */
+    }
+
+    .login-texture-panel {
+        display: none; /* Oculta la imagen de textura en pantallas pequeñas */
+    }
+
+    .login-form-panel {
+        padding: 1.5rem 1.5rem; /* Reduce el padding para ahorrar espacio */
+        width: 100%; /* Asegura que el formulario ocupe todo el ancho disponible */
+        max-width: none; /* Elimina la restricción de ancho máximo para el formulario */
+    }
+
+    /* Ajuste para el formulario interno si es necesario */
+    .login-form-panel form {
+        max-width: 100%; /* Permite que el formulario interno ocupe todo el ancho */
+    }
+}
+
+/* Estilos para el código OTP */
+.otp-input {
+  border: 2.5px solid #222 !important;
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  width: 40px;
+  height: 48px;
+  margin: 0 2px;
+  box-shadow: 0 0 0 1.5px #222;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.otp-input:focus {
+  border: 2.5px solid var(--color-gold) !important;
+  box-shadow: 0 0 8px 2px var(--color-gold);
+  outline: none;
+}
