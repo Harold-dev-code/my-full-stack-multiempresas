@@ -62,3 +62,9 @@ class UsuarioSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+    def validate(self, data):
+        # Validar email único solo para creación
+        if self.instance is None and Usuario.objects.filter(email=data['email']).exists():
+            raise serializers.ValidationError({'email': 'Ya existe un usuario con ese email.'})
+        return data

@@ -85,6 +85,14 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 
 # Login JWT personalizado (mensaje claro para usuario archivado/inactivo)
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        # Agrega los datos personalizados al payload del token
+        token['username'] = user.username
+        token['email'] = user.email
+        return token
+
     def validate(self, attrs):
         username = attrs.get('username')
         password = attrs.get('password')

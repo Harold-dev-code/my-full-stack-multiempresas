@@ -5,7 +5,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'harold.s.f@hotmail.com'
-# EMAIL_HOST_PASSWORD = ''
+# EMAIL_HOST_PASSWORD = 'Barbitas142020'
 DEFAULT_FROM_EMAIL = 'harold.s.f@hotmail.com'
 """
 Django settings for multiempresa2 project.
