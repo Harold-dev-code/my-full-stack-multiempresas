@@ -1,45 +1,112 @@
-# Nombre de tu Proyecto Full-Stack
-Una descripción concisa y atractiva de tu proyecto. Explica qué problema resuelve, sus características principales y su objetivo.
-# Estructura del Proyecto
-Este repositorio contiene tanto el código del backend (Django) como el del frontend (React). La estructura de carpetas es la siguiente:
+# Sistema de Gestión Multiempresas
 
-mi-proyecto-fullstack/
-├── backend/          # Código del proyecto Django
-│   ├── myproject/    # Configuración principal de Django
-│   ├── myapp/        # Una de tus aplicaciones Django (puede haber más)
-│   ├── manage.py     # Utilidad de línea de comandos de Django
-│   ├── requirements.txt # Dependencias de Python
-│   └── venv/         # Entorno virtual de Python (IGNORADO por Git)
-├── frontend/         # Código de la aplicación frontend (React)
-│   ├── public/       # Archivos públicos
-│   ├── src/          # Archivos fuente de React
-│   ├── package.json  # Dependencias de Node.js y scripts
-│   └── node_modules/ # Dependencias de Node.js (IGNORADO por Git)
-├── .gitignore        # Archivo para ignorar archivos y carpetas en Git
-└── README.md         # Este archivo
+## 📋 Descripción
+Sistema web full-stack para la gestión de múltiples empresas con sistema de suscripciones. Permite a las empresas gestionar usuarios, monitorear actividades y administrar sus suscripciones de manera eficiente.
+
+## ✨ Características Principales
+
+### Gestión de Empresas
+- Registro de nuevas empresas
+- Panel de administración personalizado
+- Gestión de suscripciones
+- Monitoreo de actividades y estadísticas
+
+### Gestión de Usuarios
+- Sistema multinivel de usuarios
+- Administradores por empresa
+- Control de accesos y permisos
+- Gestión de perfiles de usuario
+
+### Sistema de Suscripciones
+- Planes diferenciados (Básico, Profesional, Empresarial)
+- Activación/desactivación de suscripciones
+- Estado de suscripción en tiempo real
+- Proceso de pago integrado
+
+### Dashboard Analítico
+- Estadísticas en tiempo real
+- Gráficos de actividad
+- Historial de acciones
+- Notificaciones y actualizaciones
+
+## 🛠 Tecnologías Utilizadas
+
+### Frontend
+- React.js
+- React Router para navegación
+- CSS modular para estilos
+- JWT para autenticación
+
+### Backend
+- Django
+- Django REST Framework
+- JWT Authentication
+- SQLite3/MySQL para base de datos
+
+## 📦 Estructura del Proyecto
+
+my-full-stack-multiempresas/
+├── backend-multiempresas/    # Código del proyecto Django
+│   ├── empresas/            # App principal de Django
+│   ├── multiempresa2/       # Configuración principal de Django
+│   ├── manage.py           # Utilidad de línea de comandos de Django
+│   └── requirements.txt    # Dependencias de Python
+├── frontend-multiempresas/  # Código de la aplicación frontend (React)
+│   ├── public/            # Archivos públicos
+│   ├── src/              # Archivos fuente de React
+│   │   ├── components/   # Componentes React
+│   │   ├── pages/       # Páginas de la aplicación
+│   │   ├── api/         # Servicios de API
+│   │   └── utils/       # Utilidades
+│   └── package.json     # Dependencias de Node.js y scripts
+├── .gitignore           # Archivo para ignorar archivos y carpetas en Git
+├── LICENSE             # Archivo de licencia
+└── README.md          # Este archivo
 
 # Requisitos Previos
-Asegúrate de tener instalado lo siguiente en tu sistema:
+
+## Software Necesario
 - Python 3.8+ (Recomendado usar la última versión estable)
 - Node.js 14+ (Recomendado usar la última versión LTS)
 - npm (viene con Node.js) o Yarn
-- Puedes verificar tus versiones con estos comandos:
+- Git
+- MySQL (Necesitarás un servidor de base de datos)
+  - Opciones recomendadas: XAMPP, LAMP, MAMP o Docker
 
-    python --version
-    node --version
-    npm --version
-    yarn --version
+## Verificación de Versiones
+Puedes verificar que todo esté instalado correctamente usando estos comandos:
+```bash
+python --version    # Debe mostrar 3.8 o superior
+node --version     # Debe mostrar 14.0 o superior
+npm --version      # Versión compatible con tu Node.js
+yarn --version     # Opcional, alternativa a npm
+git --version      # Cualquier versión reciente
+mysql --version    # Versión 5.7 o superior recomendada
+```
+
 
 # Configuración e Instalación
-Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
 
-1. Clonar el RepositorioSi aún no has clonado el repositorio, hazlo:
+## Obtención del Código
 
-git clone <URL_DE_TU_REPOSITORIO>
-cd nombre-de-la-carpeta-clonada
+### Opción 1: Fork y Clonación (Recomendado)
+1. Haz fork del repositorio en GitHub (botón Fork en la esquina superior derecha)
+2. Clona tu fork:
+```bash
+git clone https://github.com/TU-USUARIO/my-full-stack-multiempresas.git
+cd my-full-stack-multiempresas
+```
 
-2. Configuración del Backend (Django)Navega a la carpeta del backend, crea un entorno virtual e instala las dependencias de Python.# Navega a la carpeta del backend
-cd backend
+### Opción 2: Clonación Directa
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd my-full-stack-multiempresas
+```
+
+2. Configuración del Backend (Django)Navega a la carpeta del backend, crea un entorno virtual e instala las dependencias de Python.
+
+# Navega a la carpeta del backend
+cd backend-multiempresas
 
 # Crea un entorno virtual (si no existe)
 python3 -m venv venv
@@ -58,8 +125,29 @@ source venv/bin/activate
 # De lo contrario, puedes usar:
 # pip install -r requirements.txt
 
+# Configura la base de datos
+# Asegúrate de tener MySQL instalado y configurado.
+# puedes usar un cliente MySQL como XAMPP, LAMP, MAMP o Docker para crear la base de datos. o ejecutar comandos SQL directamente.
+# Crea una base de datos llamada 'multiempresas' (o el nombre que prefieras). 
+# Configura la conexión a la base de datos en backend-multiempresas/multiempresa2/settings.py
+# Busca la sección DATABASES y actualiza con tus credenciales de MySQL:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'multiempresas',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+
+
 # Aplica las migraciones de la base de datos
 python manage.py migrate
+
+# Verifiva en el xampp o similar que la base de datos multiempresas se haya creado correctamente.
 
 # (Opcional) Crea un superusuario para acceder al panel de administración de Django
 python manage.py createsuperuser
@@ -125,7 +213,25 @@ Si deseas contribuir a este proyecto, por favor, sigue estos pasos:
 4. Push a tu fork (git push origin feature/nueva-funcionalidad).
 5. Abre un Pull Request describiendo tus cambios.
 
-# Licencia
-Este proyecto está bajo la Licencia [Nombre de la Licencia, ej: MIT]. 
-Consulta el archivo LICENSE para más detalles.
-¡Esperamos que disfrutes trabajando en este proyecto! Si tienes alguna pregunta, no dudes en abrir un issue.
+# 📜 Licencia
+
+Este proyecto está bajo una licencia MIT modificada con restricciones comerciales. Esto significa que puedes:
+
+✅ Clonar y hacer fork del repositorio
+✅ Modificar y estudiar el código
+✅ Usar el proyecto para fines educativos y no comerciales
+✅ Contribuir con mejoras mediante pull requests
+
+Sin embargo, requieres permiso explícito de JC Code SAS para:
+⚠️ Uso comercial del software
+⚠️ Venta o distribución del software
+⚠️ Ofrecer el software como servicio (SaaS)
+
+Para más detalles, consulta el archivo [LICENSE](LICENSE).
+
+### Contacto
+Para consultas comerciales o permisos, contacta a:
+📧 lider@jcsoftware.com.co
+
+---
+© 2025 JC Code SAS. Proyecto bajo licencia MIT con restricciones comerciales.
