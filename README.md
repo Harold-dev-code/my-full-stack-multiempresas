@@ -2,6 +2,7 @@
 
 ## 📋 Descripción
 Sistema web full-stack para la gestión de múltiples empresas con sistema de suscripciones. Permite a las empresas gestionar usuarios, monitorear actividades y administrar sus suscripciones de manera eficiente.
+![Sistema web para la gestión de múltiples empresas ](frontend-multiempresas/src/assets/img/imagenaappfullstack.png)
 
 ## ✨ Características Principales
 
